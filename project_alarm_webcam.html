@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alarm Webcam | Project Webpage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="topbar">
+    <div class="container inner">
+      <div><strong>Alarm Webcam</strong></div>
+      <div class="links">
+        <a href="index.html">Personal Page</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#discussion">Discussion</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Alarm Webcam</h1>
+      <p>A simple webcam-based drowsiness detection and alert system</p>
+      <p>This project detects sleepy facial states from webcam images and attempts to wake the user up by displaying a warning message and playing alarm music.</p>
+      <div class="badges">
+        <span>Computer Vision</span>
+        <span>Teachable Machine</span>
+        <span>Python</span>
+        <span>Real-time Alert</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="card">
+        <h2>Title & Authors</h2>
+        <table class="table">
+          <tr><th>Project Title</th><td>Alarm Webcam</td></tr>
+          <tr><th>Team Members</th><td>Min Dongwan, Kim Donghyun</td></tr>
+          <tr><th>Student ID</th><td>20260147</td></tr>
+          <tr><th>Course</th><td>EF1003 Data Literacy Foundation</td></tr>
+        </table>
+      </section>
+
+      <section id="motivation" class="card">
+        <h2>Motivation & Problem Definition</h2>
+        <p>Students often struggle to maintain concentration during long study sessions. We wanted to build a simple system that can detect a drowsy face through a webcam and immediately give an alert.</p>
+        <p>The main problem was how to distinguish between awake and drowsy facial states in real time and trigger a useful warning only when drowsiness continues.</p>
+      </section>
+
+      <section id="methods" class="grid-2">
+        <div class="card">
+          <h2>Dataset</h2>
+          <ul>
+            <li>Webcam images were collected using Teachable Machine.</li>
+            <li>Additional data from Kaggle were used to reduce narrow data bias.</li>
+            <li>The model classified images into two classes: Awake and Drowsy.</li>
+          </ul>
+          <img src="dataset.png" alt="Teachable Machine dataset collection screen" class="project-image">
+          <p class="caption">Figure 1. Data collection using Teachable Machine.</p>
+        </div>
+        <div class="card">
+          <h2>Methods</h2>
+          <ul>
+            <li>A classification model exported from Teachable Machine was loaded in Python.</li>
+            <li>Each webcam frame was resized to 224 × 224 and normalized before prediction.</li>
+            <li>Recent prediction states were stored in a short list.</li>
+            <li>An alarm was triggered when drowsy states exceeded a user-defined threshold.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>System Workflow</h2>
+        <p>The workflow below summarizes the logic of the Alarm Webcam system.</p>
+        <img src="workflow.png" alt="System workflow diagram" class="project-image">
+        <p class="caption">Figure 2. Workflow from webcam capture to alarm triggering.</p>
+      </section>
+
+      <section id="results" class="card">
+        <h2>Experiments & Results</h2>
+        <p>The project successfully implemented a real-time alert prototype. When the model repeatedly classified the user as drowsy, the program displayed a warning text and triggered alarm audio playback.</p>
+        <table class="table">
+          <tr><th>Component</th><th>Result</th></tr>
+          <tr><td>Live webcam classification</td><td>Implemented</td></tr>
+          <tr><td>Drowsy-state counting</td><td>Implemented with recent-state list</td></tr>
+          <tr><td>Alert message</td><td>"WAKE UP!" displayed on screen</td></tr>
+          <tr><td>Alarm sound</td><td>Triggered after threshold condition</td></tr>
+        </table>
+        <img src="demo.jpg" alt="Project demonstration photo" class="project-image">
+        <p class="caption">Figure 3. Demonstration of the Alarm Webcam system.</p>
+      </section>
+
+      <section id="discussion" class="grid-2">
+        <div class="card">
+          <h2>Discussion</h2>
+          <ul>
+            <li>Mislabeled training images initially reduced model performance.</li>
+            <li>The team manually reviewed about 700 images to fix labeling errors.</li>
+            <li>Kaggle data helped reduce the bias of a narrow webcam-only dataset.</li>
+            <li>The threshold logic was revised to improve actual usability.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Applications & Future Work</h2>
+          <ul>
+            <li>Study assistant for detecting concentration loss and drowsiness.</li>
+            <li>Basic fatigue-monitoring prototype using a common webcam.</li>
+            <li>Future work includes improving robustness for different people, lighting, and camera distance.</li>
+            <li>Distance-aware face handling can reduce false drowsy classification.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>References & Acknowledgement</h2>
+        <ul>
+          <li>Teachable Machine for image classification training</li>
+          <li>Kaggle for supplementary image data</li>
+          <li>Python libraries: OpenCV, NumPy, TensorFlow, Pygame, threading, and time</li>
+        </ul>
+        <a class="btn" href="index.html">Back to Personal Webpage</a>
+      </section>
+    </div>
+  </main>
+
+  <div class="container footer">Alarm Webcam | EF1003 Project Webpage</div>
+</body>
+</html>
